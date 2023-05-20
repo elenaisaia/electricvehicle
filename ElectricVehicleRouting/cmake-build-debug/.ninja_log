@@ -1,0 +1,5 @@
+# ninja log v5
+3	302	7060617600079354	CMakeFiles/ElectricVehicleRouting.dir/main.cpp.obj	16c55422d2326d38
+302	402	7060617601036828	ElectricVehicleRouting.exe	3b99ae18a85c2f86
+1	199	7063241820358288	build.ninja	2c90764a50bb7b6a
+2	79	7060616935186068	CMakeFiles/ElectricVehicleRouting.dir/ChargingStation.cpp.obj	225ff1822ef0dfa6
