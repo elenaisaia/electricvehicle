@@ -2,24 +2,35 @@
 #define ELECTRICVEHICLEROUTING_CHARGINGSTATION_H
 
 
+#include <cstddef>
+
 class ChargingStation {
 public:
-    ChargingStation(unsigned int id, unsigned int x, unsigned int y);
+    ChargingStation(unsigned int id, int x, int y, unsigned int chargingTime);
 
     unsigned int getId() const;
 
-    unsigned int getX() const;
+    int getX() const;
 
-    void setX(unsigned int x);
+    void setX(int x);
 
-    unsigned int getY() const;
+    int getY() const;
 
-    void setY(unsigned int y);
+    void setY(int y);
+
+    unsigned int getCharhingTime() const;
+
+    void setCharhingTime(unsigned int charhingTime);
+
+    bool operator==(const ChargingStation &rhs) const;
+
+    bool operator!=(const ChargingStation &rhs) const;
 
 private:
     unsigned int id;
-    unsigned int x;
-    unsigned int y;
+    int x;
+    int y;
+    unsigned int charhingTime;
 };
 
 

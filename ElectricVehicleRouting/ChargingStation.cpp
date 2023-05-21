@@ -1,23 +1,39 @@
 #include "ChargingStation.h"
 
-ChargingStation::ChargingStation(unsigned int id, unsigned int x, unsigned int y) : id(id), x(x), y(y) {}
+ChargingStation::ChargingStation(unsigned int id, int x, int y,unsigned int chargingTime) : id(id), x(x), y(y), charhingTime(chargingTime) {}
 
 unsigned int ChargingStation::getId() const {
     return id;
 }
 
-unsigned int ChargingStation::getX() const {
+int ChargingStation::getX() const {
     return x;
 }
 
-void ChargingStation::setX(unsigned int x) {
+void ChargingStation::setX(int x) {
     ChargingStation::x = x;
 }
 
-unsigned int ChargingStation::getY() const {
+int ChargingStation::getY() const {
     return y;
 }
 
-void ChargingStation::setY(unsigned int y) {
+void ChargingStation::setY(int y) {
     ChargingStation::y = y;
+}
+
+unsigned int ChargingStation::getCharhingTime() const {
+    return charhingTime;
+}
+
+void ChargingStation::setCharhingTime(unsigned int charhingTime) {
+    ChargingStation::charhingTime = charhingTime;
+}
+
+bool ChargingStation::operator==(const ChargingStation &rhs) const {
+    return id == rhs.id;
+}
+
+bool ChargingStation::operator!=(const ChargingStation &rhs) const {
+    return !(rhs == *this);
 }
