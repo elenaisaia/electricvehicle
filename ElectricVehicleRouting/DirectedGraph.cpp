@@ -1,13 +1,21 @@
 #include "DirectedGraph.h"
 
-DirectedGraph::DirectedGraph(int vertexes, int arches) : vertexes(vertexes), arches(arches) {}
+DirectedGraph::DirectedGraph(unsigned int vertexes, unsigned int arches) : vertexes(vertexes), arches(arches) {}
 
-int DirectedGraph::getVertexes() const {
+unsigned int DirectedGraph::getVertexes() const {
     return vertexes;
 }
 
-int DirectedGraph::getArches() const {
+unsigned int DirectedGraph::getArches() const {
     return arches;
+}
+
+const std::unordered_map<unsigned int, ChargingStation> &DirectedGraph::getVertexList() const {
+    return vertexList;
+}
+
+void DirectedGraph::setVertexList(const std::unordered_map<unsigned int, ChargingStation> &vertexlist) {
+    DirectedGraph::vertexList = vertexlist;
 }
 
 std::unordered_map<ChargingStation, std::vector<NextChargingStation>> DirectedGraph::getAdjacencyList() const {

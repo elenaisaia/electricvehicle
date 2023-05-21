@@ -8,6 +8,8 @@ class ChargingStation {
 public:
     ChargingStation(unsigned int id, int x, int y, unsigned int chargingTime);
 
+    ChargingStation() = default;
+
     unsigned int getId() const;
 
     int getX() const;

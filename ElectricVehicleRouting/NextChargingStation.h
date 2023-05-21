@@ -6,9 +6,9 @@
 
 class NextChargingStation {
 public:
-    NextChargingStation(ChargingStation &chargingStation, unsigned int maxSpeed, unsigned int avgSpeed, int x, int y);
+    NextChargingStation(ChargingStation chargingStation, unsigned int maxSpeed, unsigned int avgSpeed, int x, int y);
 
-    NextChargingStation(ChargingStation &chargingStation, double distance, unsigned int maxSpeed, unsigned int avgSpeed,
+    NextChargingStation(ChargingStation chargingStation, double distance, unsigned int maxSpeed, unsigned int avgSpeed,
                         unsigned int time);
 
     bool operator<(const NextChargingStation &rhs) const;
@@ -19,7 +19,7 @@ public:
 
     bool operator>=(const NextChargingStation &rhs) const;
 
-    ChargingStation &getChargingStation() const;
+    ChargingStation getChargingStation() const;
 
     double getDistance() const;
 
@@ -30,7 +30,7 @@ public:
     unsigned int getTime() const;
 
 private:
-    ChargingStation &chargingStation;
+    ChargingStation chargingStation;
     double distance;
     unsigned int maxSpeed;
     unsigned int avgSpeed;

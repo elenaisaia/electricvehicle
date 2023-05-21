@@ -17,11 +17,15 @@ namespace std {
 
 class DirectedGraph {
 public:
-    DirectedGraph(int vertexes, int arches);
+    DirectedGraph(unsigned int vertexes, unsigned int arches);
 
-    int getVertexes() const;
+    unsigned int getVertexes() const;
 
-    int getArches() const;
+    unsigned int getArches() const;
+
+    const std::unordered_map<unsigned int, ChargingStation> &getVertexList() const;
+
+    void setVertexList(const std::unordered_map<unsigned int, ChargingStation> &vertexlist);
 
     std::unordered_map<ChargingStation, std::vector<NextChargingStation>> getAdjacencyList() const;
 
@@ -32,9 +36,10 @@ public:
     DirectedGraph getTransposedGraph();
 
 private:
-    int vertexes;
-    int arches;
+    unsigned int vertexes;
+    unsigned int arches;
     std::unordered_map<ChargingStation, std::vector<NextChargingStation> > adjacencyList;
+    std::unordered_map<unsigned int, ChargingStation> vertexList;
 };
 
 

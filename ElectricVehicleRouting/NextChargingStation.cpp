@@ -5,7 +5,7 @@
 #include <cmath>
 #include "NextChargingStation.h"
 
-NextChargingStation::NextChargingStation(ChargingStation &chargingStation, unsigned int maxSpeed,
+NextChargingStation::NextChargingStation(ChargingStation chargingStation, unsigned int maxSpeed,
                                          unsigned int avgSpeed, int x, int y) : chargingStation(chargingStation), maxSpeed(maxSpeed),
                                                                   avgSpeed(avgSpeed) {
     this->distance = euclidean_distance(x, y, chargingStation.getX(), chargingStation.getY()) * fRand(1, sqrt(2));
@@ -49,7 +49,7 @@ bool NextChargingStation::operator>=(const NextChargingStation &rhs) const {
     return !(*this < rhs);
 }
 
-ChargingStation &NextChargingStation::getChargingStation() const {
+ChargingStation NextChargingStation::getChargingStation() const {
     return chargingStation;
 }
 
@@ -69,7 +69,7 @@ unsigned int NextChargingStation::getTime() const {
     return time;
 }
 
-NextChargingStation::NextChargingStation(ChargingStation &chargingStation, double distance, unsigned int maxSpeed,
+NextChargingStation::NextChargingStation(ChargingStation chargingStation, double distance, unsigned int maxSpeed,
                                          unsigned int avgSpeed, unsigned int time) : chargingStation(chargingStation),
                                                                                      distance(distance),
                                                                                      maxSpeed(maxSpeed),
