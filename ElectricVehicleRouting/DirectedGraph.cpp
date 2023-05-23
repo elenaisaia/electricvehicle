@@ -14,16 +14,16 @@ const std::unordered_map<unsigned int, ChargingStation> &DirectedGraph::getVerte
     return vertexList;
 }
 
-void DirectedGraph::setVertexList(const std::unordered_map<unsigned int, ChargingStation> &vertexlist) {
-    DirectedGraph::vertexList = vertexlist;
+void DirectedGraph::addChargingStationToVertexList(ChargingStation chargingStation) {
+    vertexList[chargingStation.getId()] = chargingStation;
 }
 
 std::unordered_map<ChargingStation, std::vector<NextChargingStation>> DirectedGraph::getAdjacencyList() const {
     return adjacencyList;
 }
 
-void DirectedGraph::addNextChargingStation(ChargingStation chargingStation, NextChargingStation nextChargingStation) {
-    adjacencyList[chargingStation].push_back(nextChargingStation);
+void DirectedGraph::addNextChargingStation(const ChargingStation& chargingStation, const NextChargingStation& nextChargingStation) {
+    adjacencyList[chargingStation].emplace_back(nextChargingStation);
 }
 
 std::vector<NextChargingStation> DirectedGraph::getAdjacentStations(ChargingStation chargingStation) {

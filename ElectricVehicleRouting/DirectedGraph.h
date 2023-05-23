@@ -25,11 +25,11 @@ public:
 
     const std::unordered_map<unsigned int, ChargingStation> &getVertexList() const;
 
-    void setVertexList(const std::unordered_map<unsigned int, ChargingStation> &vertexlist);
+    void addChargingStationToVertexList(ChargingStation chargingStation);
 
     std::unordered_map<ChargingStation, std::vector<NextChargingStation>> getAdjacencyList() const;
 
-    void addNextChargingStation(ChargingStation chargingStation, NextChargingStation nextChargingStation);
+    void addNextChargingStation(const ChargingStation& chargingStation, const NextChargingStation& nextChargingStation);
 
     std::vector<NextChargingStation> getAdjacentStations(ChargingStation chargingStation);
 
