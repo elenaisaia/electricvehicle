@@ -1,8 +1,16 @@
 # ninja log v5
-4	652	7063999068397299	CMakeFiles/ElectricVehicleRouting.dir/main.cpp.obj	b79e49a4eb95fd1
-2	259	7064480875123670	build.ninja	1af70af7446afbb2
-653	836	7063999070227288	ElectricVehicleRouting.exe	a76a16b1e4deb985
-10	623	7063995052051507	CMakeFiles/ElectricVehicleRouting.dir/DirectedGraph.cpp.obj	657e5762ee38ad70
-31	159	7063462081647254	CMakeFiles/ElectricVehicleRouting.dir/ChargingStation.cpp.obj	4f6fd48b8828b72a
-3	144	7063848875208145	CMakeFiles/ElectricVehicleRouting.dir/NextChargingStation.cpp.obj	469e84e85bc91e9
-17	246	7063995048321111	CMakeFiles/ElectricVehicleRouting.dir/ElectricVehicle.cpp.obj	d86e389a836e96d6
+3	981	7069175512074074	CMakeFiles/ElectricVehicleRouting.dir/main.cpp.obj	b79e49a4eb95fd1
+15	1274	7069175514902604	CMakeFiles/ElectricVehicleRouting.dir/Dijkstra.cpp.obj	e23cbe62371d7145
+2	259	7069176932505622	build.ninja	1af70af7446afbb2
+1274	1725	7069175519441921	ElectricVehicleRouting.exe	7034554489d730c5
+32	782	7069148311059829	CMakeFiles/ElectricVehicleRouting.dir/DirectedGraph.cpp.obj	657e5762ee38ad70
+3	147	7069148304592936	CMakeFiles/ElectricVehicleRouting.dir/ChargingStation.cpp.obj	4f6fd48b8828b72a
+10	221	7069148305450471	CMakeFiles/ElectricVehicleRouting.dir/NextChargingStation.cpp.obj	469e84e85bc91e9
+9	279	7069175504998512	CMakeFiles/ElectricVehicleRouting.dir/ElectricVehicle.cpp.obj	d86e389a836e96d6
+9	133	7069188263896946	CMakeFiles/ElectricVehicleRouting.dir/ChargingStation.cpp.obj	4f6fd48b8828b72a
+3	188	7069188264430952	CMakeFiles/ElectricVehicleRouting.dir/NextChargingStation.cpp.obj	469e84e85bc91e9
+32	345	7069188266057377	CMakeFiles/ElectricVehicleRouting.dir/ElectricVehicle.cpp.obj	d86e389a836e96d6
+43	866	7069188271227918	CMakeFiles/ElectricVehicleRouting.dir/DirectedGraph.cpp.obj	657e5762ee38ad70
+16	1122	7069188273767443	CMakeFiles/ElectricVehicleRouting.dir/main.cpp.obj	b79e49a4eb95fd1
+23	1402	7069188276493991	CMakeFiles/ElectricVehicleRouting.dir/Dijkstra.cpp.obj	e23cbe62371d7145
+1402	1822	7069188280726762	ElectricVehicleRouting.exe	7034554489d730c5

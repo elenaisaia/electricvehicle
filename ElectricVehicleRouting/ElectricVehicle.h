@@ -2,8 +2,9 @@
 #define ELECTRICVEHICLEROUTING_ELECTRICVEHICLE_H
 
 #include <vector>
+#include "ChargerType.h"
 
-struct Cost {
+struct SpeedCost {
     unsigned int minSpeed;
     unsigned int maxSpeed;
     unsigned int costPerTimeUnit;
@@ -11,22 +12,25 @@ struct Cost {
 
 class ElectricVehicle {
 public:
-    ElectricVehicle(unsigned int id, unsigned int batteryPercentage);
+    ElectricVehicle(unsigned int id, ChargerType chargerType, unsigned int batteryPercentage);
 
     unsigned int getId() const;
 
+    ChargerType getChargerType() const;
+
     unsigned int getBatteryPercentage() const;
 
-    const std::vector<Cost> &getCosts() const;
+    const std::vector<SpeedCost> &getCosts() const;
 
     void setBatteryPercentage(unsigned int batteryPercentage);
 
-    void setCosts(const std::vector<Cost> &costs);
+    void setCosts(const std::vector<SpeedCost> &costs);
 
 private:
     unsigned int id;
     unsigned int batteryPercentage;
-    std::vector<Cost> costs;
+    ChargerType chargerType;
+    std::vector<SpeedCost> costs;
 };
 
 

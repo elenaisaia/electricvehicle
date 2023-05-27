@@ -35,6 +35,8 @@ public:
 
     DirectedGraph getTransposedGraph();
 
+    ChargingStation getVertexById(unsigned int id);
+
 private:
     unsigned int vertexes;
     unsigned int arches;

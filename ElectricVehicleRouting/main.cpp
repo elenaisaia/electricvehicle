@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include <queue>
 #include "ChargingStation.h"
 #include "NextChargingStation.h"
 #include "DirectedGraph.h"
+#include "Dijkstra.h"
 
 DirectedGraph readSmallGraphFromFile() {
     std::ifstream fin("smallgraph.txt");
@@ -16,28 +16,21 @@ DirectedGraph readSmallGraphFromFile() {
     int x, y;
     for(int i = 0; i < v; i++) {
         fin >> id >> x >> y >> time;
-        ChargingStation chargingStation(id, x, y, time);
+        ChargingStation chargingStation(id, x, y, time, Normal);
         graph.addChargingStationToVertexList(chargingStation);
     }
 
     std::unordered_map<unsigned int, ChargingStation> vertexes = graph.getVertexList();
-    //std::unordered_map<ChargingStation, std::vector<NextChargingStation> > adj;
     unsigned int v1, v2, maxi, avg;
     for(int i = 0; i < a; i++) {
         fin >> v1 >> v2 >> maxi >> avg;
         ChargingStation source = vertexes[v1];
         ChargingStation destination = vertexes[v2];
-        NextChargingStation station(destination, maxi, avg, source.getX(), source.getY());
-        //adj[source].push_back(station);
+        NextChargingStation station = NextChargingStation::createFromCoordinates(destination, maxi, avg, source.getX(), source.getY());
         graph.addNextChargingStation(source, station);
     }
 
     return graph;
-}
-
-void dijkstra(DirectedGraph graph) {
-    std::priority_queue<> q;
-
 }
 
 int main() {
@@ -55,7 +48,8 @@ int main() {
         }
     }
 
-    dijkstra(graph);
-
+    ElectricVehicle vehicle(1, Normal, 65);
+    Dijkstra dijkstra(vehicle, graph, 0, 100);
+    std::cout << dijkstra.findCost();
     return 0;
 }

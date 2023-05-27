@@ -79,6 +79,12 @@ build CMakeFiles/ElectricVehicleRouting.dir/ElectricVehicle.cpp.obj: CXX_COMPILE
   OBJECT_DIR = CMakeFiles\ElectricVehicleRouting.dir
   OBJECT_FILE_DIR = CMakeFiles\ElectricVehicleRouting.dir
 
+build CMakeFiles/ElectricVehicleRouting.dir/Dijkstra.cpp.obj: CXX_COMPILER__ElectricVehicleRouting_Debug D$:/Sem6/Licenta/electricvehicle/ElectricVehicleRouting/Dijkstra.cpp || cmake_object_order_depends_target_ElectricVehicleRouting
+  DEP_FILE = CMakeFiles\ElectricVehicleRouting.dir\Dijkstra.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\ElectricVehicleRouting.dir
+  OBJECT_FILE_DIR = CMakeFiles\ElectricVehicleRouting.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ElectricVehicleRouting
@@ -87,7 +93,7 @@ build CMakeFiles/ElectricVehicleRouting.dir/ElectricVehicle.cpp.obj: CXX_COMPILE
 #############################################
 # Link the executable ElectricVehicleRouting.exe
 
-build ElectricVehicleRouting.exe: CXX_EXECUTABLE_LINKER__ElectricVehicleRouting_Debug CMakeFiles/ElectricVehicleRouting.dir/main.cpp.obj CMakeFiles/ElectricVehicleRouting.dir/ChargingStation.cpp.obj CMakeFiles/ElectricVehicleRouting.dir/NextChargingStation.cpp.obj CMakeFiles/ElectricVehicleRouting.dir/DirectedGraph.cpp.obj CMakeFiles/ElectricVehicleRouting.dir/ElectricVehicle.cpp.obj
+build ElectricVehicleRouting.exe: CXX_EXECUTABLE_LINKER__ElectricVehicleRouting_Debug CMakeFiles/ElectricVehicleRouting.dir/main.cpp.obj CMakeFiles/ElectricVehicleRouting.dir/ChargingStation.cpp.obj CMakeFiles/ElectricVehicleRouting.dir/NextChargingStation.cpp.obj CMakeFiles/ElectricVehicleRouting.dir/DirectedGraph.cpp.obj CMakeFiles/ElectricVehicleRouting.dir/ElectricVehicle.cpp.obj CMakeFiles/ElectricVehicleRouting.dir/Dijkstra.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ElectricVehicleRouting.dir

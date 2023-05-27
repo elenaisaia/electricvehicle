@@ -6,10 +6,10 @@
 
 class NextChargingStation {
 public:
-    NextChargingStation(ChargingStation chargingStation, unsigned int maxSpeed, unsigned int avgSpeed, int x, int y);
-
     NextChargingStation(ChargingStation chargingStation, double distance, unsigned int maxSpeed, unsigned int avgSpeed,
-                        unsigned int time);
+                        double time);
+
+    static NextChargingStation createFromCoordinates(ChargingStation chargingStation, unsigned int maxSpeed, unsigned int avgSpeed, int x, int y);
 
     bool operator<(const NextChargingStation &rhs) const;
 
@@ -27,14 +27,14 @@ public:
 
     unsigned int getAvgSpeed() const;
 
-    unsigned int getTime() const;
+    double getTime() const;
 
 private:
     ChargingStation chargingStation;
     double distance;
     unsigned int maxSpeed;
     unsigned int avgSpeed;
-    unsigned int time;
+    double time;
 
     static double euclidean_distance(int x, int y, unsigned int x1, unsigned int y1);
     static double fRand(double fMin, double fMax);

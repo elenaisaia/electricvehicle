@@ -5,11 +5,16 @@
 #include <cmath>
 #include "NextChargingStation.h"
 
-NextChargingStation::NextChargingStation(ChargingStation chargingStation, unsigned int maxSpeed,
-                                         unsigned int avgSpeed, int x, int y) : chargingStation(chargingStation), maxSpeed(maxSpeed),
-                                                                  avgSpeed(avgSpeed) {
-    this->distance = euclidean_distance(x, y, chargingStation.getX(), chargingStation.getY()) * fRand(1, sqrt(2));
-    this->time = this->distance / this->avgSpeed;
+NextChargingStation::NextChargingStation(ChargingStation chargingStation, double distance, unsigned int maxSpeed,
+                                         unsigned int avgSpeed, double time) : chargingStation(chargingStation),
+                                                                                     distance(distance),
+                                                                                     maxSpeed(maxSpeed),
+                                                                                     avgSpeed(avgSpeed), time(time) {}
+
+NextChargingStation NextChargingStation::createFromCoordinates(ChargingStation chargingStation, unsigned int maxSpeed, unsigned int avgSpeed, int x, int y) {
+    double distance = euclidean_distance(x, y, chargingStation.getX(), chargingStation.getY()) * fRand(1, sqrt(2));
+    double time = distance / avgSpeed;
+    return NextChargingStation{chargingStation, distance, maxSpeed, avgSpeed, time};
 }
 
 double NextChargingStation::euclidean_distance(int x, int y, unsigned int x1, unsigned int y1) {
@@ -65,12 +70,6 @@ unsigned int NextChargingStation::getAvgSpeed() const {
     return avgSpeed;
 }
 
-unsigned int NextChargingStation::getTime() const {
+double NextChargingStation::getTime() const {
     return time;
 }
-
-NextChargingStation::NextChargingStation(ChargingStation chargingStation, double distance, unsigned int maxSpeed,
-                                         unsigned int avgSpeed, unsigned int time) : chargingStation(chargingStation),
-                                                                                     distance(distance),
-                                                                                     maxSpeed(maxSpeed),
-                                                                                     avgSpeed(avgSpeed), time(time) {}

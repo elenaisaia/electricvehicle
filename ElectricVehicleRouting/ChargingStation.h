@@ -3,10 +3,11 @@
 
 
 #include <cstddef>
+#include "ChargerType.h"
 
 class ChargingStation {
 public:
-    ChargingStation(unsigned int id, int x, int y, unsigned int chargingTime);
+    ChargingStation(unsigned int id, int x, int y, double chargingTime, ChargerType chargerType);
 
     ChargingStation() = default;
 
@@ -14,15 +15,11 @@ public:
 
     int getX() const;
 
-    void setX(int x);
-
     int getY() const;
 
-    void setY(int y);
+    double getCharhingTime() const;
 
-    unsigned int getCharhingTime() const;
-
-    void setCharhingTime(unsigned int charhingTime);
+    ChargerType getChargerType() const;
 
     bool operator==(const ChargingStation &rhs) const;
 
@@ -32,7 +29,8 @@ private:
     unsigned int id;
     int x;
     int y;
-    unsigned int charhingTime;
+    double charhingTime;
+    ChargerType chargerType;
 };
 
 

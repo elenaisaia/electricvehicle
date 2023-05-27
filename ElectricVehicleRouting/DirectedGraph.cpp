@@ -44,3 +44,7 @@ DirectedGraph DirectedGraph::getTransposedGraph() {
     }
     return transposedGraph;
 }
+
+ChargingStation DirectedGraph::getVertexById(unsigned int id) {
+    return vertexList.at(id);
+}

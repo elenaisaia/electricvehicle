@@ -1,6 +1,6 @@
 #include "ChargingStation.h"
 
-ChargingStation::ChargingStation(unsigned int id, int x, int y,unsigned int chargingTime) : id(id), x(x), y(y), charhingTime(chargingTime) {}
+ChargingStation::ChargingStation(unsigned int id, int x, int y, double chargingTime, ChargerType chargerType) : id(id), x(x), y(y), charhingTime(chargingTime), chargerType(chargerType) {}
 
 unsigned int ChargingStation::getId() const {
     return id;
@@ -10,24 +10,16 @@ int ChargingStation::getX() const {
     return x;
 }
 
-void ChargingStation::setX(int x) {
-    ChargingStation::x = x;
-}
-
 int ChargingStation::getY() const {
     return y;
 }
 
-void ChargingStation::setY(int y) {
-    ChargingStation::y = y;
-}
-
-unsigned int ChargingStation::getCharhingTime() const {
+double ChargingStation::getCharhingTime() const {
     return charhingTime;
 }
 
-void ChargingStation::setCharhingTime(unsigned int charhingTime) {
-    ChargingStation::charhingTime = charhingTime;
+ChargerType ChargingStation::getChargerType() const {
+    return chargerType;
 }
 
 bool ChargingStation::operator==(const ChargingStation &rhs) const {

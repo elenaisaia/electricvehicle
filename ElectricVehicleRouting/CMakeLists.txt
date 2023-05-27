@@ -3,4 +3,4 @@ project(ElectricVehicleRouting)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(ElectricVehicleRouting main.cpp ChargingStation.cpp ChargingStation.h NextChargingStation.cpp NextChargingStation.h DirectedGraph.cpp DirectedGraph.h ElectricVehicle.cpp ElectricVehicle.h)
+add_executable(ElectricVehicleRouting main.cpp ChargingStation.cpp ChargingStation.h NextChargingStation.cpp NextChargingStation.h DirectedGraph.cpp DirectedGraph.h ElectricVehicle.cpp ElectricVehicle.h Dijkstra.cpp Dijkstra.h ChargerType.h)
