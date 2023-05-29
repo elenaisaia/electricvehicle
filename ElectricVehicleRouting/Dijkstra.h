@@ -19,7 +19,7 @@ private:
     unsigned int destinationId;
     std::priority_queue<NextChargingStation> queue;
     std::unordered_map<unsigned int, double> cost;
-    std::unordered_map<unsigned int, unsigned int> parinte;
+    std::unordered_map<unsigned int, unsigned int> parent;
     std::unordered_map<unsigned int, bool> visited;
 };
 

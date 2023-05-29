@@ -7,12 +7,12 @@
 struct SpeedCost {
     unsigned int minSpeed;
     unsigned int maxSpeed;
-    unsigned int costPerTimeUnit;
+    double costPerTimeUnit;
 };
 
 class ElectricVehicle {
 public:
-    ElectricVehicle(unsigned int id, ChargerType chargerType, unsigned int batteryPercentage);
+    ElectricVehicle(unsigned int id, ChargerType chargerType, unsigned int batteryPercentage, double onePercentChargingTime);
 
     unsigned int getId() const;
 
@@ -20,15 +20,20 @@ public:
 
     unsigned int getBatteryPercentage() const;
 
+    double getOnePercentChargingTime() const;
+
     const std::vector<SpeedCost> &getCosts() const;
 
     void setBatteryPercentage(unsigned int batteryPercentage);
 
-    void setCosts(const std::vector<SpeedCost> &costs);
+    void addCost(unsigned int minSpeed, unsigned int maxSpeed, double costPerTimeUnit);
+
+    double getCostPerTimeUnit(unsigned int speed);
 
 private:
     unsigned int id;
     unsigned int batteryPercentage;
+    double onePercentChargingTime;
     ChargerType chargerType;
     std::vector<SpeedCost> costs;
 };

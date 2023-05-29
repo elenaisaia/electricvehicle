@@ -7,7 +7,7 @@
 
 class ChargingStation {
 public:
-    ChargingStation(unsigned int id, int x, int y, double chargingTime, ChargerType chargerType);
+    ChargingStation(unsigned int id, int x, int y, double onePercentChargingTime, ChargerType chargerType);
 
     ChargingStation() = default;
 
@@ -17,7 +17,7 @@ public:
 
     int getY() const;
 
-    double getCharhingTime() const;
+    double getOnePercentCharhingTime() const;
 
     ChargerType getChargerType() const;
 
@@ -29,7 +29,7 @@ private:
     unsigned int id;
     int x;
     int y;
-    double charhingTime;
+    double onePercentCharhingTime;
     ChargerType chargerType;
 };
 

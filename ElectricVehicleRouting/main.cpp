@@ -38,7 +38,7 @@ int main() {
 
     std::cout << graph.getVertexes() << " " << graph.getArches() << "\n";
     for(auto station : graph.getVertexList()) {
-        std::cout << station.first << " " << station.second.getId() << " " << station.second.getX() << " " << station.second.getY() << " " << station.second.getCharhingTime() << "\n";
+        std::cout << station.first << " " << station.second.getId() << " " << station.second.getX() << " " << station.second.getY() << " " << station.second.getOnePercentCharhingTime() << "\n";
     }
 
     for(const auto& arch : graph.getAdjacencyList()) {

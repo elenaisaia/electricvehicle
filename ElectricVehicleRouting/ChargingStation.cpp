@@ -1,6 +1,6 @@
 #include "ChargingStation.h"
 
-ChargingStation::ChargingStation(unsigned int id, int x, int y, double chargingTime, ChargerType chargerType) : id(id), x(x), y(y), charhingTime(chargingTime), chargerType(chargerType) {}
+ChargingStation::ChargingStation(unsigned int id, int x, int y, double onePercentChargingTime, ChargerType chargerType) : id(id), x(x), y(y), onePercentCharhingTime(onePercentChargingTime), chargerType(chargerType) {}
 
 unsigned int ChargingStation::getId() const {
     return id;
@@ -14,8 +14,8 @@ int ChargingStation::getY() const {
     return y;
 }
 
-double ChargingStation::getCharhingTime() const {
-    return charhingTime;
+double ChargingStation::getOnePercentCharhingTime() const {
+    return onePercentCharhingTime;
 }
 
 ChargerType ChargingStation::getChargerType() const {
