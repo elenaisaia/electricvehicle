@@ -22,8 +22,6 @@ public:
 
     double getOnePercentChargingTime() const;
 
-    const std::vector<SpeedCost> &getCosts() const;
-
     void setBatteryPercentage(unsigned int batteryPercentage);
 
     void addCost(unsigned int minSpeed, unsigned int maxSpeed, double costPerTimeUnit);

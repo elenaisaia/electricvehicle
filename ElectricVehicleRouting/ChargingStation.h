@@ -3,11 +3,13 @@
 
 
 #include <cstddef>
+#include <vector>
+#include <algorithm>
 #include "ChargerType.h"
 
 class ChargingStation {
 public:
-    ChargingStation(unsigned int id, int x, int y, double onePercentChargingTime, ChargerType chargerType);
+    ChargingStation(unsigned int id, int x, int y, double onePercentChargingTime);
 
     ChargingStation() = default;
 
@@ -19,7 +21,9 @@ public:
 
     double getOnePercentCharhingTime() const;
 
-    ChargerType getChargerType() const;
+    bool hasChargerType(ChargerType chargerType);
+
+    void addChargerType(ChargerType chargerType);
 
     bool operator==(const ChargingStation &rhs) const;
 
@@ -30,7 +34,7 @@ private:
     int x;
     int y;
     double onePercentCharhingTime;
-    ChargerType chargerType;
+    std::vector<ChargerType> chargerTypes;
 };
 
 

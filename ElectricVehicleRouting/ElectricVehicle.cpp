@@ -14,10 +14,6 @@ unsigned int ElectricVehicle::getBatteryPercentage() const {
     return batteryPercentage;
 }
 
-const std::vector<SpeedCost> &ElectricVehicle::getCosts() const {
-    return costs;
-}
-
 void ElectricVehicle::setBatteryPercentage(unsigned int batteryPercentage) {
     ElectricVehicle::batteryPercentage = batteryPercentage;
 }
