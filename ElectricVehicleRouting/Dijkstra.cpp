@@ -33,7 +33,7 @@ double Dijkstra::findCost() {
                 }
                 finalBatteryPercentage -= vehicleCostPerTimeUnit * arch.getTime();
 
-                if(finalBatteryPercentage >= 50 || finalBatteryPercentage >= 20 && next.getId() != destinationId) {
+                if(finalBatteryPercentage >= 20 || finalBatteryPercentage >= 10 && next.getId() != destinationId) {
                     double timeForFullCharge = (100 - finalBatteryPercentage) * std::min(vehicle.getOnePercentChargingTime(), next.getOnePercentCharhingTime());
 
                     auto newTime = cost.at(current.getId()) + arch.getTime() + timeForFullCharge;
