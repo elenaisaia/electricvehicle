@@ -1,6 +1,6 @@
 #include "ChargingStation.h"
 
-ChargingStation::ChargingStation(unsigned int id, int x, int y, double onePercentChargingTime) : id(id), x(x), y(y), onePercentCharhingTime(onePercentChargingTime) {}
+ChargingStation::ChargingStation(unsigned int id, int x, int y, double onePercentChargingTime) : id(id), x(x), y(y), onePercentChargingTime(onePercentChargingTime) {}
 
 unsigned int ChargingStation::getId() const {
     return id;
@@ -14,8 +14,8 @@ int ChargingStation::getY() const {
     return y;
 }
 
-double ChargingStation::getOnePercentCharhingTime() const {
-    return onePercentCharhingTime;
+double ChargingStation::getOnePercentChargingTime() const {
+    return onePercentChargingTime;
 }
 
 bool ChargingStation::operator==(const ChargingStation &rhs) const {
@@ -26,8 +26,8 @@ bool ChargingStation::operator!=(const ChargingStation &rhs) const {
     return !(rhs == *this);
 }
 
-bool ChargingStation::hasChargerType(ChargerType chargerType) {
-    if(std::count(chargerTypes.begin(), chargerTypes.end(), chargerType))
+bool ChargingStation::isCompatibleWith(const ElectricVehicle& electricVehicle) {
+    if(std::count(chargerTypes.begin(), chargerTypes.end(), electricVehicle.getChargerType()))
         return true;
     return false;
 }

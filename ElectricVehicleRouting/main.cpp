@@ -2,15 +2,15 @@
 #include <fstream>
 #include "ChargingStation.h"
 #include "NextChargingStation.h"
-#include "DirectedGraph.h"
-#include "Dijkstra.h"
+#include "DirectedGraphForChargingStations.h"
+#include "OptimalTimeDijkstra.h"
 
-DirectedGraph readSmallGraphFromFile() {
+DirectedGraphForChargingStations readSmallGraphFromFile() {
     std::ifstream fin("smallgraph.txt");
     unsigned int v, a;
     fin >> v >> a;
 
-    DirectedGraph graph = DirectedGraph(v, a);
+    DirectedGraphForChargingStations graph = DirectedGraphForChargingStations(v, a);
 
     unsigned int id, time;
     int x, y, nr;
@@ -51,11 +51,11 @@ int main() {
     vehicle.addCost(81, 100, 35);
     vehicle.addCost(101, 130, 50);
 
-    DirectedGraph graph = readSmallGraphFromFile();
+    DirectedGraphForChargingStations graph = readSmallGraphFromFile();
 
     std::cout << graph.getVertexes() << " " << graph.getArches() << "\n";
     for(auto &station : graph.getVertexList()) {
-        std::cout << station.first << " " << station.second.getId() << " " << station.second.getX() << " " << station.second.getY() << " " << station.second.getOnePercentCharhingTime() << "\n";
+        std::cout << station.first << " " << station.second.getId() << " " << station.second.getX() << " " << station.second.getY() << " " << station.second.getOnePercentChargingTime() << "\n";
     }
 
     for(const auto& arch : graph.getAdjacencyList()) {
@@ -66,7 +66,7 @@ int main() {
     }
     std::cout << "\n";
 
-    Dijkstra dijkstra(vehicle, graph, 0, 100);
+    OptimalTimeDijkstra dijkstra(vehicle, graph, 0, 100);
     std::cout << dijkstra.findCost();
     return 0;
 }

@@ -6,6 +6,7 @@
 #include <vector>
 #include <algorithm>
 #include "ChargerType.h"
+#include "ElectricVehicle.h"
 
 class ChargingStation {
 public:
@@ -19,9 +20,9 @@ public:
 
     int getY() const;
 
-    double getOnePercentCharhingTime() const;
+    double getOnePercentChargingTime() const;
 
-    bool hasChargerType(ChargerType chargerType);
+    bool isCompatibleWith(const ElectricVehicle& electricVehicle);
 
     void addChargerType(ChargerType chargerType);
 
@@ -33,7 +34,7 @@ private:
     unsigned int id;
     int x;
     int y;
-    double onePercentCharhingTime;
+    double onePercentChargingTime;
     std::vector<ChargerType> chargerTypes;
 };
 

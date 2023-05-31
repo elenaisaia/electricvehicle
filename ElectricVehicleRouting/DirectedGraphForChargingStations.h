@@ -1,5 +1,5 @@
-#ifndef ELECTRICVEHICLEROUTING_DIRECTEDGRAPH_H
-#define ELECTRICVEHICLEROUTING_DIRECTEDGRAPH_H
+#ifndef ELECTRICVEHICLEROUTING_DIRECTEDGRAPHFORCHARGINGSTATIONS_H
+#define ELECTRICVEHICLEROUTING_DIRECTEDGRAPHFORCHARGINGSTATIONS_H
 
 #include <vector>
 #include <unordered_map>
@@ -15,9 +15,9 @@ namespace std {
     };
 }
 
-class DirectedGraph {
+class DirectedGraphForChargingStations {
 public:
-    DirectedGraph(unsigned int vertexes, unsigned int arches);
+    DirectedGraphForChargingStations(unsigned int vertexes, unsigned int arches);
 
     unsigned int getVertexes() const;
 
@@ -33,7 +33,7 @@ public:
 
     std::vector<NextChargingStation> getAdjacentStations(ChargingStation chargingStation);
 
-    DirectedGraph getTransposedGraph();
+    DirectedGraphForChargingStations getTransposedGraph();
 
     ChargingStation getVertexById(unsigned int id);
 
@@ -45,4 +45,4 @@ private:
 };
 
 
-#endif //ELECTRICVEHICLEROUTING_DIRECTEDGRAPH_H
+#endif //ELECTRICVEHICLEROUTING_DIRECTEDGRAPHFORCHARGINGSTATIONS_H

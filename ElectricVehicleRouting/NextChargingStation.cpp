@@ -27,17 +27,19 @@ double NextChargingStation::fRand(double fMin, double fMax) {
 }
 
 bool NextChargingStation::operator<(const NextChargingStation &rhs) const {
-    if (chargingStation.getOnePercentCharhingTime() + time < rhs.chargingStation.getOnePercentCharhingTime() + rhs.getTime())
+    if (chargingStation.getOnePercentChargingTime() + time <
+            rhs.chargingStation.getOnePercentChargingTime() + rhs.getTime())
         return true;
-    if (rhs.chargingStation.getOnePercentCharhingTime() + rhs.getTime() < chargingStation.getOnePercentCharhingTime() + time )
+    if (rhs.chargingStation.getOnePercentChargingTime() + rhs.getTime() <
+            chargingStation.getOnePercentChargingTime() + time )
         return false;
     if (time < rhs.getTime())
         return true;
     if (rhs.getTime() < time)
         return false;
-    if (chargingStation.getOnePercentCharhingTime() < rhs.chargingStation.getOnePercentCharhingTime())
+    if (chargingStation.getOnePercentChargingTime() < rhs.chargingStation.getOnePercentChargingTime())
         return true;
-    if (rhs.chargingStation.getOnePercentCharhingTime() < chargingStation.getOnePercentCharhingTime())
+    if (rhs.chargingStation.getOnePercentChargingTime() < chargingStation.getOnePercentChargingTime())
         return false;
     return distance < rhs.getDistance();
 }
