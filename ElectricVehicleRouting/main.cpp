@@ -36,7 +36,7 @@ DirectedGraphForChargingStations readSmallGraphFromFile() {
         fin >> v1 >> v2 >> maxi >> avg;
         ChargingStation source = vertexes[v1];
         ChargingStation destination = vertexes[v2];
-        NextChargingStation station = NextChargingStation::createFromCoordinates(destination, maxi, avg, source.getX(), source.getY());
+        NextChargingStation station = NextChargingStation::createFromCoordinates(destination, avg, source.getX(), source.getY());
         graph.addNextChargingStation(source, station);
     }
 

@@ -2,12 +2,12 @@
 
 ShortestDistanceDijkstra::ShortestDistanceDijkstra(DirectedGraphForIntersections &graph) : graph(graph) {}
 
-std::unordered_map<unsigned int, double> ShortestDistanceDijkstra::findDistances(unsigned int sourceId) {
-    distances.empty();
+void ShortestDistanceDijkstra::findDistances(unsigned int sourceId) {
+    cost.empty();
     visited.empty();
     queue.empty();
 
-    distances[sourceId] = 0;
+    cost[sourceId].distance = 0;
     visited[sourceId] = true;
     NextNode source{0, 0, sourceId};
     queue.push(source);
@@ -17,8 +17,8 @@ std::unordered_map<unsigned int, double> ShortestDistanceDijkstra::findDistances
         queue.pop();
         visited[current] = false;
         for(auto &arch : graph.getAdjacentNodes(current)) {
-            if(distances.find(arch.nextId) == distances.end() || distances[arch.nextId] > distances[current] + arch.distance) {
-                distances[arch.nextId] = distances[current] + arch.distance;
+            if(cost.find(arch.nextId) == cost.end() || cost[arch.nextId].distance > cost[current].distance + arch.distance) {
+                cost[arch.nextId].distance = cost[current].distance + arch.distance;
                 if(!visited.at(arch.nextId)) {
                     queue.push(arch);
                     visited[arch.nextId] = true;
@@ -26,6 +26,21 @@ std::unordered_map<unsigned int, double> ShortestDistanceDijkstra::findDistances
             }
         }
     }
+}
 
-    return distances;
+std::vector<NextChargingStation> ShortestDistanceDijkstra::getNextChargingStationsForChargingStation(unsigned int id) {
+    findDistances(id);
+
+    std::vector<NextChargingStation> nextStations;
+
+    for(auto &pair : cost) {
+        if(graph.containsChargingStation(id)) {
+            if(pair.second.distance <= graph.getMaxDistance()) {
+                nextStations.emplace_back(graph.getChargingStationById(id), pair.second.distance, pair.second.speed,
+                                          pair.second.distance / pair.second.speed);
+            }
+        }
+    }
+
+    return nextStations;
 }

@@ -22,6 +22,8 @@ public:
 
     double getOnePercentChargingTime() const;
 
+    const std::vector<ChargerType> &getChargerTypes() const;
+
     bool isCompatibleWith(const ElectricVehicle& electricVehicle);
 
     void addChargerType(ChargerType chargerType);

@@ -13,3 +13,11 @@ int Intersection::getX() const {
 int Intersection::getY() const {
     return y;
 }
+
+bool Intersection::operator==(const Intersection &rhs) const {
+    return id == rhs.id;
+}
+
+bool Intersection::operator!=(const Intersection &rhs) const {
+    return !(rhs == *this);
+}

@@ -11,7 +11,7 @@ OptimalTimeDijkstra::OptimalTimeDijkstra(ElectricVehicle &vehicle, DirectedGraph
 double OptimalTimeDijkstra::findCost() {
     cost[sourceId] = 0;
     visited[sourceId] = true;
-    NextChargingStation source(graph.getVertexById(sourceId), 0, 1000, 1000, 0);
+    NextChargingStation source(graph.getVertexById(sourceId), 0, 1000, 0);
     queue.push(source);
 
     while (!queue.empty()) {
@@ -53,7 +53,7 @@ double OptimalTimeDijkstra::findCost() {
 
     parent[sourceId] = 99999;
     for(auto elem : cost) {
-        std::cout << elem.first << ": distances=" << elem.second << " parent=" << parent.at(elem.first) << "\n";
+        std::cout << elem.first << ": cost=" << elem.second << " parent=" << parent.at(elem.first) << "\n";
     }
 
     return cost.at(destinationId);

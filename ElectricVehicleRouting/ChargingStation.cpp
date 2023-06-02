@@ -18,6 +18,10 @@ double ChargingStation::getOnePercentChargingTime() const {
     return onePercentChargingTime;
 }
 
+const std::vector<ChargerType> &ChargingStation::getChargerTypes() const {
+    return chargerTypes;
+}
+
 bool ChargingStation::operator==(const ChargingStation &rhs) const {
     return id == rhs.id;
 }

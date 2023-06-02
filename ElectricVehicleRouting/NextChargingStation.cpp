@@ -1,20 +1,15 @@
-//
-// Created by elena on 18-May-23.
-//
-
 #include <cmath>
 #include "NextChargingStation.h"
 
-NextChargingStation::NextChargingStation(ChargingStation chargingStation, double distance, unsigned int maxSpeed,
+NextChargingStation::NextChargingStation(ChargingStation chargingStation, double distance,
                                          unsigned int avgSpeed, double time) : chargingStation(chargingStation),
                                                                                      distance(distance),
-                                                                                     maxSpeed(maxSpeed),
                                                                                      avgSpeed(avgSpeed), time(time) {}
 
-NextChargingStation NextChargingStation::createFromCoordinates(ChargingStation chargingStation, unsigned int maxSpeed, unsigned int avgSpeed, int x, int y) {
+NextChargingStation NextChargingStation::createFromCoordinates(ChargingStation chargingStation, unsigned int avgSpeed, int x, int y) {
     double distance = euclidean_distance(x, y, chargingStation.getX(), chargingStation.getY()) * fRand(1, sqrt(2));
     double time = distance / avgSpeed;
-    return NextChargingStation{chargingStation, distance, maxSpeed, avgSpeed, time};
+    return NextChargingStation{chargingStation, distance, avgSpeed, time};
 }
 
 double NextChargingStation::euclidean_distance(int x, int y, unsigned int x1, unsigned int y1) {
@@ -62,10 +57,6 @@ ChargingStation NextChargingStation::getChargingStation() const {
 
 double NextChargingStation::getDistance() const {
     return distance;
-}
-
-unsigned int NextChargingStation::getMaxSpeed() const {
-    return maxSpeed;
 }
 
 unsigned int NextChargingStation::getAvgSpeed() const {

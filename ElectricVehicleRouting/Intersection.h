@@ -14,6 +14,10 @@ public:
 
     int getY() const;
 
+    bool operator==(const Intersection &rhs) const;
+
+    bool operator!=(const Intersection &rhs) const;
+
 private:
     unsigned int id;
     int x;
